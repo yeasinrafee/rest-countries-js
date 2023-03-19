@@ -4,12 +4,19 @@ const fetchData = async () =>{
     displayData(data);
 }
 
-const displayData = (countries) => countries.map(country => displayHTML(country)); 
+const displayData = (countries) =>{
+    const countriesHtml = countries.map(country => displayHTML(country));
+    const container = document.getElementById('country');
+    container.innerHTML = countriesHtml.join(' ');
+}
+
 const displayHTML = country =>{
     console.log(country);
-    `
-        <div>
+
+    return `
+        <div class="country-box">
             <h2>${country.name.common}</h2>
+            <img src="${country.flags.png}" alt="flag" />
         </div>
     `
 }
