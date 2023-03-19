@@ -10,13 +10,15 @@ const displayData = (countries) =>{
     container.innerHTML = countriesHtml.join(' ');
 }
 
-const displayHTML = country =>{
+const displayHTML = ({name, flags, area, region}) =>{
     console.log(country);
 
     return `
         <div class="country-box">
-            <h2>${country.name.common}</h2>
-            <img src="${country.flags.png}" alt="flag" />
+            <h2>${name.common}</h2>
+            <p>${area}</p>
+            <p>${region}</p>
+            <img src="${flags.png}" alt="flag" />
         </div>
     `
 }
